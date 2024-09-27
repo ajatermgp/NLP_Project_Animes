@@ -7,7 +7,7 @@ In den Scraper genannten Dateien sind die Serien-spezifischen Scraper enthalten.
 Zuächst wird das fandom-py-package und das io-package importiert. Ersters von beiden ist das Schlüsselelement für den Scraper, da es sich dabei um ein fertiges Package handelt, dessen Funktion es ist, Fandom-Wiki-Seiten zu scrapen.
 
 Im ersten Schritt werden die Titel aller Seiten gescrapet indem sie in 500-er Schritten durchgegangen und einem Dictionary hinzugefügt werden. Die Begrenzung auf 500 ist von dem fandom-package vorgegeben: es können immer nur 500 zufällige Seiten gescrapet werden. Um sicherzustellen, dass alle Seiten gescrapet werden, werden diese Titel einem Dictionary hinzugefügt, um damit zu garantieren, dass jeder Titel nur einmal aufgenommen wird. Dieser Scraper und das Hinzufügen zum Dictionary wird so lange durchlaufen (durch eine While-Schleife) bis das Dictionary so lang ist wie es Seiten im Wiki gibt. Die genaue Anzahl konnte in der Regel der Statistik-Seite des Wikis entnommen werden.
-Um mit den Titeln weiterarbeiten zu können wurden das Dictionary Zeile für Zeile ineine txt-Datei geschrieben, sodass diese Datei dann Zeile für Zeile abgearbeitet werden kann.
+Um mit den Titeln weiterarbeiten zu können, wurden das Dictionary Zeile für Zeile in eine txt-Datei geschrieben, sodass diese Datei dann Zeile für Zeile abgearbeitet werden kann.
 Im nächsten Schritt werden tatsächlich die Seiteninhalte gescrapet und nicht nur deren Titel. Dafür wird für jede Zeile der Dictionary-Datei der Inhalt der Seite, die zum aktuellen Titel gehört, gescrapet und in eine neue txt-Datei, welche dump genannt wird, geschrieben. Somit wird für jede Serie eine eigene Dictionay- und eine Dump-Datei erstellt.
 
 ## Datengrundlage
@@ -22,7 +22,7 @@ Die für das jeweilige Modell nötigen Daten wurden in Embeddings umgewandelt, g
 Die Modelle sind nach folgendem Schema benannt: Mit "Basis_Modell" sind die Modelle bezeichnet, bei denen nur die Daten der jeweiligen Serie übergeben wurden, bei "Plus_Modell" wurden die Daten aller drei Serien übergeben.
 
 ## Similarity Score
-Für die quantitative Evaluation wurde der Semantic Textual Similarity Score verwendet. Dazu werden eine Ground Truth und ein Vergleichssatz übergeben und die semantische Ähnlichkeit in einer Prozentangabe ausgerechnet - für alle Fragen nach Modell unterteilt. In diesen Dokumenten sind auch die ChatGPT-Anworten enthalten.
+Für die quantitative Evaluation wurde der Semantic Textual Similarity Score von Huggingface verwendet. Dazu werden eine Ground Truth und ein Vergleichssatz übergeben und die semantische Ähnlichkeit in einer Prozentangabe ausgerechnet - für alle Fragen nach Modell unterteilt. 
 
 ## Evaluation 
 Zur Evaluation wurden zunächst für die drei Modelle (Basis, ChatGPT, Plus) die Semantic Textual Similarity Scores verglichen. Dazu wurden zunächst die Mittelwerte der Scores ausgerechnet und anschließend eine einseitige ANOVA durchgeführt, um zu ermitteln, ob es einen statistisch signifikanten Unterschied in der Performanz gibt. Das gleiche Vorgehen wurde anschließend bei den Ranking Scores angewendet.

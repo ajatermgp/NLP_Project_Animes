@@ -16,6 +16,21 @@ In den Dateien mit dump am Anfang sind die gescrapeten Daten zu finden. Sie enth
 ## Ground Truth
 In den Antworten_Bewertungen-Excel Mappen sind die verwendeten Ground Truth-Frage-Antworten-Paare und deren Quellen enthalten. Darüber hinaus enthalten sie auch die Antworten aller drei Modelle (Basis, ChatGPT, erweitertes Modell), ihre Similarity Scores, ihr Ranking sowie Kommentare zur Qualität der Antworten.
 
+## RAG(Retrieval Augmented Generative)-Modelle
+Die für das jeweilige Modell nötigen Daten wurden in Embeddings umgewandelt, gechunkt und in einer Elasticsearch-Datenbank gespeichert. Anschließend wurde eine RAG-Pipeline mit einem Retriever, einem Prompt-Builder und einem Generator gebaut und die Daten übergeben. Für die Textgeneration wurde das etablierte Mixtral-8x7B LLM als Basis genommen. Die Schnittstelle zum LLM lief über Huggingface. Schließlich wurden die Fragen der Pipeline übergeben. Für das Umwandeln der Daten und das Bauen der Pipeline wurde das Open Source Framework Haystack verwendet. 
+
+Die Modelle sind nach folgendem Schema benannt: Mit "Basis_Modell" sind die Modelle bezeichnet, bei denen nur die Daten der jeweiligen Serie übergeben wurden, bei "Plus_Modell" wurden die Daten aller drei Serien übergeben.
+
+## Similarity Score
+Für die quantitative Evaluation wurde der Semantic Textual Similarity Score verwendet. Dazu werden eine Ground Truth und ein Vergleichssatz übergeben und die semantische Ähnlichkeit in einer Prozentangabe ausgerechnet - für alle Fragen nach Modell unterteilt. In diesen Dokumenten sind auch die ChatGPT-Anworten enthalten.
+
+## Evaluation 
+Zur Evaluation wurden zunächst für die drei Modelle (Basis, ChatGPT, Plus) die Semantic Textual Similarity Scores verglichen. Dazu wurden zunächst die Mittelwerte der Scores ausgerechnet und anschließend eine einseitige ANOVA durchgeführt, um zu ermitteln, ob es einen statistisch signifikanten Unterschied in der Performanz gibt. Das gleiche Vorgehen wurde anschließend bei den Ranking Scores angewendet.
+
+## Outlook 
+Als ersten Lösungsanatz für ein spoilerfreies Modell, bei dem die Datensätze nach Arcs (Geschichtenabschnitt) aufgeteilt und übergeben werden, wurde ein Vorgehen mit ollama getestet. Um das lokal laufende Sprachmodell nutzen zu können, muss dieses erst heruntergeladen werden (https://ollama.com). Anschließend im Terminal "ollama run llama3" eingeben, dadurch wird das llama3:8b, das kleinere Modell, heruntergeladen. 
+
+
 
 
 

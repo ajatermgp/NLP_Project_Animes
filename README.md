@@ -14,7 +14,7 @@ Im nächsten Schritt werden tatsächlich die Seiteninhalte gescrapet und nicht n
 In den Dateien mit dump am Anfang sind die gescrapeten Daten zu finden. Sie enthalten den Titel der Seite sowie den Inhalt und nach einer Leerzeile den Titel der nächsten Seite.
 
 ## Ground Truth
-In den Ground Truth-Excel Mappen sind die verwendeten Ground Truth-Frage-Antworten-Paare und deren Quellen enthalten. Darüber hinaus enthalten sie auch die Antworten aller drei Modelle, ihre Similarity Scores, ihr Ranking sowie Kommentare zur Qualität der Antworten.
+In den Antworten_Bewertungen-Excel Mappen sind die verwendeten Ground Truth-Frage-Antworten-Paare und deren Quellen enthalten. Darüber hinaus enthalten sie auch die Antworten aller drei Modelle (Basis, ChatGPT, erweitertes Modell), ihre Similarity Scores, ihr Ranking sowie Kommentare zur Qualität der Antworten.
 
 
 
